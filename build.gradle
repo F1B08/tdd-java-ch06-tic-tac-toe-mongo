@@ -8,12 +8,9 @@ repositories {
 }
 
 dependencies {
-    // TODO: Add to book
     compile 'org.jongo:jongo:1.1'
-    // TODO: Add to book
     compile 'org.mongodb:mongo-java-driver:2.+'
     testCompile 'junit:junit:4.11'
-    // TODO: Add to book
     testCompile 'org.mockito:mockito-all:1.+'
 }
 
@@ -22,6 +19,7 @@ test {
     include '**/*Spec.class'
 }
 
+//TODO: Add to book
 task testInteg(type: Test) {
     include '**/*Integ.class'
 }
