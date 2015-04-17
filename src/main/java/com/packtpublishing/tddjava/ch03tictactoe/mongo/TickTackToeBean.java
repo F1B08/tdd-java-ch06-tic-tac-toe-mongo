@@ -2,6 +2,7 @@ package com.packtpublishing.tddjava.ch03tictactoe.mongo;
 
 import org.jongo.marshall.jackson.oid.Id;
 
+//TODO: Add to book
 public class TickTackToeBean {
 
     @Id
