@@ -2,7 +2,7 @@ package com.packtpublishing.tddjava.ch03tictactoe.mongo;
 
 import org.junit.Before;
 import org.junit.Test;
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.*;
 
 // TODO: Add to book
 public class TickTackToeBeanSpec {
@@ -20,22 +20,22 @@ public class TickTackToeBeanSpec {
 
     @Test
     public void whenInstantiatedThenIdIsStored() {
-        assertThat(bean.getTurn()).isEqualTo(turn);
+        assertEquals(turn, bean.getTurn());
     }
 
     @Test
     public void whenInstantiatedThenXIsStored() {
-        assertThat(bean.getX()).isEqualTo(x);
+        assertEquals(x, bean.getX());
     }
 
     @Test
     public void whenInstantiatedThenYIsStored() {
-        assertThat(bean.getY()).isEqualTo(y);
+        assertEquals(y, bean.getY());
     }
 
     @Test
     public void whenInstantiatedThenPlayerIsStored() {
-        assertThat(bean.getPlayer()).isEqualTo(player);
+        assertEquals(player, bean.getPlayer());
     }
 
 }

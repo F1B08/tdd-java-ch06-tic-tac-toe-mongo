@@ -11,8 +11,6 @@ import java.net.UnknownHostException;
 import static org.junit.Assert.*;
 // TODO: Add to book
 import static org.mockito.Mockito.*;
-// TODO: Add to book
-import static org.assertj.core.api.Assertions.assertThat;
 
 public class TicTacToeSpec {
 
@@ -129,7 +127,7 @@ public class TicTacToeSpec {
     // TODO: Add to book until the end
     @Test
     public void whenInstantiatedThenSetCollection() throws UnknownHostException {
-        assertThat(ticTacToe.getTicTacToeCollection()).isInstanceOf(TickTackToeCollection.class);
+        assertNotNull(ticTacToe.getTicTacToeCollection());
     }
 
     @Test

@@ -14,8 +14,6 @@ dependencies {
     compile 'org.mongodb:mongo-java-driver:2.+'
     testCompile 'junit:junit:4.11'
     // TODO: Add to book
-    testCompile 'org.assertj:assertj-core:2.0.0'
-    // TODO: Add to book
     testCompile 'org.mockito:mockito-all:1.+'
 }
 

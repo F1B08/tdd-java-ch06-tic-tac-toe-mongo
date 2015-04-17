@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import java.net.UnknownHostException;
 import static org.mockito.Mockito.*;
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.*;
 
 // TODO: Add to book
 public class TickTackToeCollectionSpec {
@@ -27,12 +27,12 @@ public class TickTackToeCollectionSpec {
 
     @Test
     public void whenInstantiatedThenMongoCollectionHasDbNameTickTackToe() {
-        assertThat(collection.getMongoCollection().getDBCollection().getDB().getName()).isEqualTo(dbName);
+        assertEquals(dbName, collection.getMongoCollection().getDBCollection().getDB().getName());
     }
 
     @Test
     public void whenInstantiatedThenMongoCollectionHasNameGame() {
-        assertThat(collection.getMongoCollection().getName()).isEqualTo(collectionName);
+        assertEquals(collectionName, collection.getMongoCollection().getName());
     }
 
     @Test
@@ -45,14 +45,14 @@ public class TickTackToeCollectionSpec {
     @Test
     public void whenSaveMoveThenReturnTrue() {
         doReturn(mongoCollection).when(collection).getMongoCollection();
-        assertThat(collection.saveMove(bean)).isTrue();
+        assertTrue(collection.saveMove(bean));
     }
 
     @Test
     public void givenExceptionWhenSaveMoveThenReturnFalse() {
         doThrow(new MongoException("Bla")).when(mongoCollection).save(any(TickTackToeBean.class));
         doReturn(mongoCollection).when(collection).getMongoCollection();
-        assertThat(collection.saveMove(bean)).isFalse();
+        assertFalse(collection.saveMove(bean));
     }
 
     @Test
@@ -65,14 +65,14 @@ public class TickTackToeCollectionSpec {
     @Test
     public void whenDropThenReturnTrue() {
         doReturn(mongoCollection).when(collection).getMongoCollection();
-        assertThat(collection.drop()).isTrue();
+        assertTrue(collection.drop());
     }
 
     @Test
     public void givenExceptionWhenDropThenReturnFalse() {
         doThrow(new MongoException("Bla")).when(mongoCollection).drop();
         doReturn(mongoCollection).when(collection).getMongoCollection();
-        assertThat(collection.drop()).isFalse();
+        assertFalse(collection.drop());
     }
 
 }
