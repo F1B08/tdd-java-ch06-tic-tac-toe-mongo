@@ -4,9 +4,9 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class TickTackToeBeanSpec {
+public class TicTacToeBeanSpec {
 
-    private TickTackToeBean bean;
+    private TicTacToeBean bean;
     private final int turn = 17;
     private final int x = 2;
     private final int y = 3;
@@ -14,7 +14,7 @@ public class TickTackToeBeanSpec {
 
     @Before
     public void before() {
-        bean = new TickTackToeBean(turn, x, y, player);
+        bean = new TicTacToeBean(turn, x, y, player);
     }
 
     @Test
