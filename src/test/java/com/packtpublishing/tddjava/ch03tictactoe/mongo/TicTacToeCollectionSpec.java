@@ -9,32 +9,32 @@ import java.net.UnknownHostException;
 import static org.mockito.Mockito.*;
 import static org.junit.Assert.*;
 
-public class TickTackToeCollectionSpec {
+public class TicTacToeCollectionSpec {
 
-    TickTackToeCollection collection;
-    TickTackToeBean bean;
+    TicTacToeCollection collection;
+    TicTacToeBean bean;
     MongoCollection mongoCollection;
 
     @Before
     public void before() throws UnknownHostException {
-        collection = spy(new TickTackToeCollection());
-        bean = new TickTackToeBean(3, 2, 1, 'Y');
+        collection = spy(new TicTacToeCollection());
+        bean = new TicTacToeBean(3, 2, 1, 'Y');
         mongoCollection = mock(MongoCollection.class);
     }
 
     @Test
-    public void whenInstantiatedThenMongoCollectionHasDbNameTickTackToe() {
+    public void whenInstantiatedThenMongoCollectionHasDbNameTicTacToe() {
 //            throws UnknownHostException {
-//        TickTackToeCollection collection = new TickTackToeCollection();
+//        TicTacToeCollection collection = new TicTacToeCollection();
         assertEquals(
-                "tick-tack-toe",
+                "tic-tac-toe",
                 collection.getMongoCollection().getDBCollection().getDB().getName());
     }
 
     @Test
     public void whenInstantiatedThenMongoCollectionHasNameGame() {
 //            throws UnknownHostException {
-//        TickTackToeCollection collection = new TickTackToeCollection();
+//        TicTacToeCollection collection = new TicTacToeCollection();
         assertEquals(
                 "game",
                 collection.getMongoCollection().getName());
@@ -42,7 +42,7 @@ public class TickTackToeCollectionSpec {
 
     @Test
     public void whenSaveMoveThenInvokeMongoCollectionSave() {
-//        TickTackToeBean bean = new TickTackToeBean(3, 2, 1, 'Y');
+//        TicTacToeBean bean = new TicTacToeBean(3, 2, 1, 'Y');
 //        MongoCollection mongoCollection = mock(MongoCollection.class);
         doReturn(mongoCollection).when(collection).getMongoCollection();
         collection.saveMove(bean);
@@ -51,7 +51,7 @@ public class TickTackToeCollectionSpec {
 
     @Test
     public void whenSaveMoveThenReturnTrue() {
-//        TickTackToeBean bean = new TickTackToeBean(3, 2, 1, 'Y');
+//        TicTacToeBean bean = new TicTacToeBean(3, 2, 1, 'Y');
 //        MongoCollection mongoCollection = mock(MongoCollection.class);
         doReturn(mongoCollection).when(collection).getMongoCollection();
         assertTrue(collection.saveMove(bean));
@@ -61,7 +61,7 @@ public class TickTackToeCollectionSpec {
     public void givenExceptionWhenSaveMoveThenReturnFalse() {
         doThrow(new MongoException("Bla"))
                 .when(mongoCollection)
-                .save(any(TickTackToeBean.class));
+                .save(any(TicTacToeBean.class));
         doReturn(mongoCollection).when(collection).getMongoCollection();
         assertFalse(collection.saveMove(bean));
     }
