@@ -111,4 +111,9 @@ public class TicTacToeSpec {
         assertEquals("The result is draw", actual);
     }
 
+    @Test
+    public void whenInstantiatedThenSetCollection() throws UnknownHostException {
+        assertNotNull(ticTacToe.getTicTacToeCollection());
+    }
+
 }
