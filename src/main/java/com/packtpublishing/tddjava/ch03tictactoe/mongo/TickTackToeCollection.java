@@ -19,8 +19,22 @@ public class TickTackToeCollection {
         mongoCollection = new Jongo(db).getCollection("game");
     }
 
-    public void saveMove(TickTackToeBean bean) {
-        getMongoCollection().save(bean);
+    public boolean saveMove(TickTackToeBean bean) {
+        try {
+            getMongoCollection().save(bean);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean drop() {
+        try {
+            getMongoCollection().drop();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
 }
