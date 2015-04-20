@@ -13,3 +13,11 @@ dependencies {
     testCompile 'junit:junit:4.11'
     testCompile 'org.mockito:mockito-all:1.+'
 }
+
+test {
+    include '**/*Spec.class'
+}
+
+task testInteg(type: Test) {
+    include '**/*Integ.class'
+}
