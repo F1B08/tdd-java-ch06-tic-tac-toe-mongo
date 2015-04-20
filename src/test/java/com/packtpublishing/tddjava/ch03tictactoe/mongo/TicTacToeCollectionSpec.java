@@ -8,24 +8,24 @@ import java.net.UnknownHostException;
 import static org.mockito.Mockito.*;
 import static org.junit.Assert.*;
 
-public class TickTackToeCollectionSpec {
+public class TicTacToeCollectionSpec {
 
-    private TickTackToeCollection collection;
+    private TicTacToeCollection collection;
     private MongoCollection mongoCollection;
-    private static final String dbName = "tick-tack-toe";
+    private static final String dbName = "tic-tac-toe";
     private static final String collectionName = "game";
-    private TickTackToeBean bean;
+    private TicTacToeBean bean;
 
     @Before
     public void before() throws UnknownHostException {
-        collection = spy(new TickTackToeCollection());
+        collection = spy(new TicTacToeCollection());
         mongoCollection = mock(MongoCollection.class);
-        bean = new TickTackToeBean(3, 2, 1, 'Y');
+        bean = new TicTacToeBean(3, 2, 1, 'Y');
     }
 
 
     @Test
-    public void whenInstantiatedThenMongoCollectionHasDbNameTickTackToe() {
+    public void whenInstantiatedThenMongoCollectionHasDbNameTicTacToe() {
         assertEquals(dbName, collection.getMongoCollection().getDBCollection().getDB().getName());
     }
 
@@ -49,7 +49,7 @@ public class TickTackToeCollectionSpec {
 
     @Test
     public void givenExceptionWhenSaveMoveThenReturnFalse() {
-        doThrow(new MongoException("Bla")).when(mongoCollection).save(any(TickTackToeBean.class));
+        doThrow(new MongoException("Bla")).when(mongoCollection).save(any(TicTacToeBean.class));
         doReturn(mongoCollection).when(collection).getMongoCollection();
         assertFalse(collection.saveMove(bean));
     }

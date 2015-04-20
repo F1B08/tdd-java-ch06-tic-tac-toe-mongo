@@ -7,21 +7,21 @@ import org.jongo.MongoCollection;
 
 import java.net.UnknownHostException;
 
-public class TickTackToeCollection {
+public class TicTacToeCollection {
 
     private MongoCollection mongoCollection;
     protected MongoCollection getMongoCollection() {
         return mongoCollection;
     }
-    private static final String dbName = "tick-tack-toe";
+    private static final String dbName = "tic-tac-toe";
     private static final String collectionName = "game";
 
-    public TickTackToeCollection() throws UnknownHostException {
+    public TicTacToeCollection() throws UnknownHostException {
         DB db = new MongoClient().getDB(dbName);
         mongoCollection = new Jongo(db).getCollection(collectionName);
     }
 
-    public boolean saveMove(TickTackToeBean bean) {
+    public boolean saveMove(TicTacToeBean bean) {
         try {
             getMongoCollection().save(bean);
             return true;

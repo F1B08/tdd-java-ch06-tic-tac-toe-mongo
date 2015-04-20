@@ -1,7 +1,7 @@
 package com.packtpublishing.tddjava.ch03tictactoe;
 
-import com.packtpublishing.tddjava.ch03tictactoe.mongo.TickTackToeBean;
-import com.packtpublishing.tddjava.ch03tictactoe.mongo.TickTackToeCollection;
+import com.packtpublishing.tddjava.ch03tictactoe.mongo.TicTacToeBean;
+import com.packtpublishing.tddjava.ch03tictactoe.mongo.TicTacToeCollection;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -17,16 +17,16 @@ public class TicTacToeSpec {
     @Rule
     public ExpectedException exception = ExpectedException.none();
     private TicTacToe ticTacToe;
-    private TickTackToeCollection collection;
+    private TicTacToeCollection collection;
 
     @Before
     public final void before() throws UnknownHostException {
         // TODO: Add to book
-        collection = mock(TickTackToeCollection.class);
+        collection = mock(TicTacToeCollection.class);
         // TODO: Add to book
         doReturn(true).when(collection).drop();
         // TODO: Add to book
-        doReturn(true).when(collection).saveMove(any(TickTackToeBean.class));
+        doReturn(true).when(collection).saveMove(any(TicTacToeBean.class));
 //        ticTacToe = new TicTacToe();
         // TODO: Add to book
         ticTacToe = new TicTacToe(collection);
@@ -132,25 +132,25 @@ public class TicTacToeSpec {
 
     @Test
     public void whenPlayThenSaveMoveIsInvoked() {
-        TickTackToeBean move = new TickTackToeBean(1, 1, 3, 'X');
+        TicTacToeBean move = new TicTacToeBean(1, 1, 3, 'X');
         ticTacToe.play(move.getX(), move.getY());
         verify(collection, times(1)).saveMove(move);
     }
 
     @Test
     public void whenPlayAndSaveReturnsFalseThenThrowException() {
-        doReturn(false).when(collection).saveMove(any(TickTackToeBean.class));
-        TickTackToeBean move = new TickTackToeBean(1, 1, 3, 'X');
+        doReturn(false).when(collection).saveMove(any(TicTacToeBean.class));
+        TicTacToeBean move = new TicTacToeBean(1, 1, 3, 'X');
         exception.expect(RuntimeException.class);
         ticTacToe.play(move.getX(), move.getY());
     }
 
     @Test
     public void whenPlayInvokedMultipleTimesThenTurnIncreases() {
-        TickTackToeBean move1 = new TickTackToeBean(1, 1, 1, 'X');
+        TicTacToeBean move1 = new TicTacToeBean(1, 1, 1, 'X');
         ticTacToe.play(move1.getX(), move1.getY());
         verify(collection, times(1)).saveMove(move1);
-        TickTackToeBean move2 = new TickTackToeBean(2, 1, 2, 'O');
+        TicTacToeBean move2 = new TicTacToeBean(2, 1, 2, 'O');
         ticTacToe.play(move2.getX(), move2.getY());
         verify(collection, times(1)).saveMove(move2);
     }

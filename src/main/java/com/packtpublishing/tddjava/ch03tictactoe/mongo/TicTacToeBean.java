@@ -2,7 +2,7 @@ package com.packtpublishing.tddjava.ch03tictactoe.mongo;
 
 import org.jongo.marshall.jackson.oid.Id;
 
-public class TickTackToeBean {
+public class TicTacToeBean {
 
     @Id
     private int turn;
@@ -25,8 +25,8 @@ public class TickTackToeBean {
         return player;
     }
 
-    public TickTackToeBean() { }
-    public TickTackToeBean(int turn, int x, int y, char player) {
+    public TicTacToeBean() { }
+    public TicTacToeBean(int turn, int x, int y, char player) {
         this.turn = turn;
         this.x = x;
         this.y = y;
@@ -37,7 +37,7 @@ public class TickTackToeBean {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TickTackToeBean that = (TickTackToeBean) o;
+        TicTacToeBean that = (TicTacToeBean) o;
         if (player != that.player) return false;
         if (turn != that.turn) return false;
         if (x != that.x) return false;

@@ -1,7 +1,7 @@
 package com.packtpublishing.tddjava.ch03tictactoe;
 
-import com.packtpublishing.tddjava.ch03tictactoe.mongo.TickTackToeBean;
-import com.packtpublishing.tddjava.ch03tictactoe.mongo.TickTackToeCollection;
+import com.packtpublishing.tddjava.ch03tictactoe.mongo.TicTacToeBean;
+import com.packtpublishing.tddjava.ch03tictactoe.mongo.TicTacToeCollection;
 
 import java.net.UnknownHostException;
 
@@ -15,18 +15,18 @@ public class TicTacToe {
     public static final String NO_WINNER = "No winner";
     public static final String RESULT_DRAW = "The result is draw";
     // TODO: Add to book
-    private TickTackToeCollection ticTacToeCollection;
+    private TicTacToeCollection ticTacToeCollection;
     // TODO: Add to book
-    protected TickTackToeCollection getTicTacToeCollection() {
+    protected TicTacToeCollection getTicTacToeCollection() {
         return ticTacToeCollection;
     }
 
     // TODO: Add to book
     public TicTacToe() throws UnknownHostException {
-        this(new TickTackToeCollection());
+        this(new TicTacToeCollection());
     }
     // TODO: Add to book
-    protected TicTacToe(TickTackToeCollection collection) {
+    protected TicTacToe(TicTacToeCollection collection) {
         ticTacToeCollection = collection;
         if (!ticTacToeCollection.drop()) {
             throw new RuntimeException("Dropping DB collection failed");
@@ -39,9 +39,9 @@ public class TicTacToe {
         lastPlayer = nextPlayer();
 //        setBox(x, y, lastPlayer);
         // TODO: Add to book
-//        setBox(new TickTackToeBean(1, x, y, lastPlayer));
+//        setBox(new TicTacToeBean(1, x, y, lastPlayer));
         // TODO: Add to book
-        setBox(new TickTackToeBean(++turn, x, y, lastPlayer));
+        setBox(new TicTacToeBean(++turn, x, y, lastPlayer));
         if (isWin(x, y)) {
             return lastPlayer + " is the winner";
         } else if (isDraw()) {
@@ -64,8 +64,8 @@ public class TicTacToe {
         }
     }
 
-    // TODO: Add refactoring to TickTackToeBean argument
-    private void setBox(TickTackToeBean bean) {
+    // TODO: Add refactoring to TicTacToeBean argument
+    private void setBox(TicTacToeBean bean) {
         if (board[bean.getX() - 1][bean.getY() - 1] != '\0') {
             throw new RuntimeException("Box is occupied");
         } else {
