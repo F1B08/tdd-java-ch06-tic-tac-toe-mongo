@@ -7,25 +7,20 @@ import java.net.UnknownHostException;
 
 public class TicTacToe {
 
-    // TODO: Add to book
     private int turn = 0;
     private Character[][] board = {{'\0', '\0', '\0'}, {'\0', '\0', '\0'}, {'\0', '\0', '\0'}};
     private char lastPlayer = '\0';
     private static final int SIZE = 3;
     public static final String NO_WINNER = "No winner";
     public static final String RESULT_DRAW = "The result is draw";
-    // TODO: Add to book
     private TicTacToeCollection ticTacToeCollection;
-    // TODO: Add to book
     protected TicTacToeCollection getTicTacToeCollection() {
         return ticTacToeCollection;
     }
 
-    // TODO: Add to book
     public TicTacToe() throws UnknownHostException {
         this(new TicTacToeCollection());
     }
-    // TODO: Add to book
     protected TicTacToe(TicTacToeCollection collection) {
         ticTacToeCollection = collection;
         if (!ticTacToeCollection.drop()) {
@@ -38,9 +33,7 @@ public class TicTacToe {
         checkAxis(y);
         lastPlayer = nextPlayer();
 //        setBox(x, y, lastPlayer);
-        // TODO: Add to book
 //        setBox(new TicTacToeBean(1, x, y, lastPlayer));
-        // TODO: Add to book
         setBox(new TicTacToeBean(++turn, x, y, lastPlayer));
         if (isWin(x, y)) {
             return lastPlayer + " is the winner";
@@ -64,13 +57,11 @@ public class TicTacToe {
         }
     }
 
-    // TODO: Add refactoring to TicTacToeBean argument
     private void setBox(TicTacToeBean bean) {
         if (board[bean.getX() - 1][bean.getY() - 1] != '\0') {
             throw new RuntimeException("Box is occupied");
         } else {
             board[bean.getX() - 1][bean.getY() - 1] = lastPlayer;
-            // TODO: Add to book
             if (!getTicTacToeCollection().saveMove(bean)) {
                 throw new RuntimeException("Saving to DB failed");
             }

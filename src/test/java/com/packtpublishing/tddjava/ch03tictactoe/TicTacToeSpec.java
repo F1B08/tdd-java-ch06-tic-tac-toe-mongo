@@ -9,7 +9,6 @@ import org.junit.rules.ExpectedException;
 
 import java.net.UnknownHostException;
 import static org.junit.Assert.*;
-// TODO: Add to book
 import static org.mockito.Mockito.*;
 
 public class TicTacToeSpec {
@@ -21,14 +20,10 @@ public class TicTacToeSpec {
 
     @Before
     public final void before() throws UnknownHostException {
-        // TODO: Add to book
         collection = mock(TicTacToeCollection.class);
-        // TODO: Add to book
         doReturn(true).when(collection).drop();
-        // TODO: Add to book
         doReturn(true).when(collection).saveMove(any(TicTacToeBean.class));
 //        ticTacToe = new TicTacToe();
-        // TODO: Add to book
         ticTacToe = new TicTacToe(collection);
     }
 
@@ -124,7 +119,6 @@ public class TicTacToeSpec {
         assertEquals("The result is draw", actual);
     }
 
-    // TODO: Add to book until the end
     @Test
     public void whenInstantiatedThenSetCollection() throws UnknownHostException {
         assertNotNull(ticTacToe.getTicTacToeCollection());
