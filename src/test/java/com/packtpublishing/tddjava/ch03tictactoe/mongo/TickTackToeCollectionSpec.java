@@ -8,7 +8,6 @@ import java.net.UnknownHostException;
 import static org.mockito.Mockito.*;
 import static org.junit.Assert.*;
 
-// TODO: Add to book
 public class TickTackToeCollectionSpec {
 
     private TickTackToeCollection collection;

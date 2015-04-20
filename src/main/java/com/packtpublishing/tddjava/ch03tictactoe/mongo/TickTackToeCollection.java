@@ -2,13 +2,11 @@ package com.packtpublishing.tddjava.ch03tictactoe.mongo;
 
 import com.mongodb.DB;
 import com.mongodb.MongoClient;
-import com.mongodb.WriteResult;
 import org.jongo.Jongo;
 import org.jongo.MongoCollection;
 
 import java.net.UnknownHostException;
 
-//TODO: Add to book
 public class TickTackToeCollection {
 
     private MongoCollection mongoCollection;
