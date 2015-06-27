@@ -15,7 +15,7 @@ public class TicTacToeSpec {
     private TicTacToe ticTacToe;
 
     @Before
-    public final void before() throws UnknownHostException {
+    public final void before() {
         ticTacToe = new TicTacToe();
     }
 
