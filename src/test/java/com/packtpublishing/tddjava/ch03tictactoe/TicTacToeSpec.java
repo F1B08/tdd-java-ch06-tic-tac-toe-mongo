@@ -7,7 +7,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import java.net.UnknownHostException;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
@@ -19,7 +18,7 @@ public class TicTacToeSpec {
     private TicTacToeCollection collection;
 
     @Before
-    public final void before() throws UnknownHostException {
+    public final void before() {
         collection = mock(TicTacToeCollection.class);
         doReturn(true).when(collection).drop();
         doReturn(true).when(collection).saveMove(any(TicTacToeBean.class));
@@ -120,7 +119,7 @@ public class TicTacToeSpec {
     }
 
     @Test
-    public void whenInstantiatedThenSetCollection() throws UnknownHostException {
+    public void whenInstantiatedThenSetCollection() {
         assertNotNull(ticTacToe.getTicTacToeCollection());
     }
 
@@ -155,7 +154,7 @@ public class TicTacToeSpec {
     }
 
     @Test
-    public void whenInstantiatedAndDropReturnsFalseThenThrowException() throws UnknownHostException {
+    public void whenInstantiatedAndDropReturnsFalseThenThrowException() {
         doReturn(false).when(collection).drop();
         exception.expect(RuntimeException.class);
         new TicTacToe(collection);
