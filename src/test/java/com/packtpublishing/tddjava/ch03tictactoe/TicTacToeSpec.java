@@ -5,7 +5,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import java.net.UnknownHostException;
 import static org.junit.Assert.*;
 
 public class TicTacToeSpec {
@@ -15,7 +14,7 @@ public class TicTacToeSpec {
     private TicTacToe ticTacToe;
 
     @Before
-    public final void before() throws UnknownHostException {
+    public final void before() {
         ticTacToe = new TicTacToe();
     }
 
