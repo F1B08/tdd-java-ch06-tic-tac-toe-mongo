@@ -46,7 +46,7 @@ public class TicTacToeCollectionSpec {
 //        MongoCollection mongoCollection = mock(MongoCollection.class);
         doReturn(mongoCollection).when(collection).getMongoCollection();
         collection.saveMove(bean);
-        verify(mongoCollection, times(1)).save(bean);
+        verify(mongoCollection).save(bean);
     }
 
     @Test
@@ -70,7 +70,7 @@ public class TicTacToeCollectionSpec {
     public void whenDropThenInvokeMongoCollectionDrop() {
         doReturn(mongoCollection).when(collection).getMongoCollection();
         collection.drop();
-        verify(mongoCollection, times(1)).drop();
+        verify(mongoCollection).drop();
     }
 
     @Test
